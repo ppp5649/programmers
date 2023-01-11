@@ -1,19 +1,19 @@
 # 문자열 다루기 기본
 
-def solution(s):
-    answer = True
-    
+
+def basic_str(s):
     if len(s) != 4 and len(s) != 6:
-        answer = False
-    
+        return False
+
     else:
         try:
             int(s)
-            
-        except ValueError:
-            answer = False
 
-    return answer
+        except ValueError:
+            return False
+
+    return True
+
 
 # try except 구문
 # try에서 코드를 실행했을 때 에러가 뜨면 except 구문으로 넘어감

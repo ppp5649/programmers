@@ -1,10 +1,12 @@
 # 해시 LV2. 전화번호부
 from collections import Counter
 
-def solution(phone_book):
-        
+
+def phone_number(phone_book):
+
     answer = True
-    
+
     return answer
 
-solution(["119", "97674223", "1195524421"])
+
+phone_number(["119", "97674223", "1195524421"])
