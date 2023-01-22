@@ -3,7 +3,7 @@
 
 
 def solution(arr, divisor):
-    answer = sorted([num for num in arr if num % divisor == 0])
+    answer = sorted([n for n in arr if n % divisor == 0])
     if answer == []:
         return [-1]
 
@@ -14,4 +14,4 @@ def solution(arr, divisor):
 
 
 def solution(arr, divisor):
-    return sorted([num for num in arr if num % divisor == 0]) or [-1]
+    return sorted([n for n in arr if n % divisor == 0]) or [-1]
