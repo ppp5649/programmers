@@ -17,7 +17,7 @@ def solution(strings, n):
 
 # key값에 lambda 함수를 사용하여 정렬한 방법 (key값엔 함수가 들어감)
 # 매개변수 x에는 비교대상인 strings의 요소들이 들어가고
-# 그 요소가 s라고 했을때 s[i][n]과 s[i+1][n]이 비교되어 정렬되는 것
+# 그 요소가 s라고 했을때 s[i][n]과 s[i+k][n]이 비교되어 정렬되는 것
 def solution(strings, n):
     strings.sort()
     return sorted(strings, key=lambda x: x[n])
