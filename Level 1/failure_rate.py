@@ -24,24 +24,6 @@ def solution(n, stages):
     rank = sorted(rate.items(), key=lambda x: x[1], reverse=True)
 
     return [r[0] for r in rank]
-    # return trial
-
-    # return
-    # for i in range(1,n+1):
-    #     if cnt[i]
-
-    # for s in stages:
-    #     for i in range(n):
-    #         if s > i + 1:
-    #             trial[i] += 1
-    #         elif s == i + 1:
-    #             trial[i] += 1
-    #             fail[i] += 1
-
-    # rate = {i + 1: fail[i] / trial[i] for i in range(len(trial))}
-    # rank = sorted(rate.items(), key=lambda x: x[1], reverse=True)
-
-    # return cnt
 
 
 # 1시간 풀이 후 실패 -> 30분 추가 풀이 총 1시간 30분
