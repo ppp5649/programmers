@@ -15,10 +15,4 @@ def solution(cards1, cards2, goal):
     arr1 = [i for i in range(len(idx1))]
     arr2 = [i for i in range(len(idx2))]
 
-    if idx1 == arr1 and idx2 == arr2:
-        return "Yes"
-
-    return "No"
-
-
-solution(["i", "drink", "water"], ["want", "to"], ["i", "want", "to", "drink", "water"])
+    return "Yes" if idx1 == arr1 and idx2 == arr2 else "No"
