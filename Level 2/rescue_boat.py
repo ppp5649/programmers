@@ -1,44 +1,60 @@
 # 탐욕법(Greedy) > 구명보트
-# 풀이 시간 : 50분 (풀지 못함)
+# 풀이 시간 : 25분 (combinations 부터 바로 시간초과 - O(N^2)이라 그런듯)
 
 from itertools import combinations
-from collections import Counter
 
 
 def solution(people, limit):
     answer = 0
-    p_dic = Counter(people)
-    nC2 = combinations(people, 2)
+    c = list(combinations(people, 2))
+    idx_c = list(combinations(range(len(people)), 2))
+    couple = []
+    idx_arr = [i for i in range(len(people))]
 
-    for c in nC2:
-        if sum(c) <= limit:
-            if p_dic[c[0]] > 0 and p_dic[c[1]] > 0:
-                p_dic[c[0]] -= 1
-                p_dic[c[1]] -= 1
-                answer += 1
+    for i in range(len(c)):
+        if sum(c[i]) <= limit:
+            couple.append((sum(c[i]), idx_c[i]))
 
-    for k, v in p_dic.items():
-        answer += v
+    couple.sort(reverse=True)
+    for c in couple:
+        if c[1][0] in idx_arr and c[1][1] in idx_arr:
+            idx_arr.remove(c[1][0])
+            idx_arr.remove(c[1][1])
+            answer += 1
+
+    answer = answer + len(idx_arr)
 
     return answer
 
 
-solution([80, 50, 40, 40, 50, 70], 120)
+# %%
 
+# deque를 이용한 풀이
+# 핵심 아이디어는 정렬 후 최솟값과 최댓값의 합을 limit과 비교
 from collections import deque
 
 
 def solution(people, limit):
     answer = 0
-    people = deque(sorted(people))
+    people.sort()
+    deq = deque(people)
 
-    for _ in range(len(people)):
-        if people:
-            people.pop()
-            people.popleft()
-            answer += 1
+    while len(deq) > 0:
+        if deq[0] + deq[-1] <= limit:
+            if len(deq) > 1:
+                deq.popleft()
+                deq.pop()
+            else:
+                deq.pop()
+
+        else:
+            deq.pop()
+
+        answer += 1
 
     return answer
 
 
-print(solution([80, 50, 40, 40, 50, 70], 120))
+print(solution([70, 80, 50], 100))
+
+# %%
